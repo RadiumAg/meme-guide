@@ -1,0 +1,10 @@
+.example-track {
+  width: max-content;
+  animation: 10s linear 0s infinite carousel;
+}
+
+@keyframes carousel {
+  to {
+    transform: translateX(-50%);
+  }
+}

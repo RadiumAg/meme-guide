@@ -1,2 +1,13 @@
 .example-track {
 }
+
+.tag {
+  max-width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  &:first-child {
+    margin-left: 100px;
+  }
+}

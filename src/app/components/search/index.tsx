@@ -3,7 +3,7 @@ import { FC } from 'react';
 const Search: FC = () => {
   return (
     <input
-      className='ring-2 focus:ring-4 w-72 m-auto  block rounded-xl mt-10 px-3 py-2  outline-none'
+      className='ring-2 focus:ring-4 w-72 m-auto  block rounded-xl mt-10 px-3 py-2  outline-none dark:focus:ring-slate-400'
       placeholder='请输入'
     />
   );

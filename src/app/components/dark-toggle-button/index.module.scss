@@ -1,0 +1,19 @@
+.dark-toggle-button {
+  width: 60px;
+  display: flex;
+  position: relative;
+  border-width: 1px;
+  border-radius: 20px;
+
+  .icon {
+    transition: margin-left 0.2s ease-in-out;
+  }
+
+  .dark {
+    margin-left: 30px;
+  }
+
+  .light {
+    margin-left: 0;
+  }
+}

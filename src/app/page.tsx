@@ -2,10 +2,15 @@ import { FC } from 'react';
 import Image from 'next/image';
 import Example from './components/example';
 import Search from './components/search';
+import DarkToggleButton from './components/dark-toggle-button';
 
 const Home: FC = () => {
   return (
     <main>
+      <nav className='pl-4 pr-4 pt-6 pb-6 bg-slate-400 flex justify-end'>
+        <DarkToggleButton></DarkToggleButton>
+      </nav>
+
       <Image
         width={300}
         height={300}

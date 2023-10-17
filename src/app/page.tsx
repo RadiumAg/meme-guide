@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Example from './components/example';
 import Search from './components/search';
 import DarkToggleButton from './components/dark-toggle-button';
+import Detail from './components/detail';
 
 const Home: FC = () => {
   return (
@@ -11,17 +12,19 @@ const Home: FC = () => {
         <DarkToggleButton></DarkToggleButton>
       </nav>
 
-      <Image
-        width={300}
-        height={300}
-        className='object-cover m-auto  w-36 h-36 rounded-full  mt-28'
-        src='/icon.jpg'
-        alt='icon'
-      ></Image>
+      <div>
+        <Image
+          width={300}
+          height={300}
+          className='object-cover m-auto  w-36 h-36 rounded-full  mt-28'
+          src='/icon.jpg'
+          alt='icon'
+        ></Image>
 
-      <Search></Search>
-
-      <Example></Example>
+        <Search></Search>
+        <Example></Example>
+        <Detail></Detail>
+      </div>
     </main>
   );
 };

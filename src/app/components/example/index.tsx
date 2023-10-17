@@ -4,20 +4,6 @@ import { FC, useEffect } from 'react';
 import Style from './example.module.scss';
 
 const Example: FC = () => {
-  // add scrollEvent
-  useEffect(() => {
-    const handleEvent = (event) => {
-      console.log(event);
-    };
-
-    window.addEventListener('scroll', handleEvent);
-
-    return () => {
-      console.log('unMounted');
-      window.removeEventListener('scroll', handleEvent);
-    };
-  }, []);
-
   const buttons = Array.from({ length: 20 }).map((_, index) => (
     <button
       key={index}

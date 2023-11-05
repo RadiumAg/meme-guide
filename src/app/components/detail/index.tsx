@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { LegacyRef, useEffect, useRef } from 'react';
 import Style from './index.module.scss';
 import { useInfoContext } from '@/app/utils';
 import { useUpdate } from 'ahooks';
@@ -10,6 +10,7 @@ const Detail = () => {
   } = useInfoContext();
   const showInfoRef = useRef('');
   const update = useUpdate();
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     let index = 0;
@@ -22,6 +23,8 @@ const Detail = () => {
       showInfoRef.current += showInfo.slice(index, index + 1);
       index++;
       update();
+
+      textareaRef.current?.scrollTo({ top: textareaRef.current.scrollHeight });
 
       if (index === showInfo.length) {
         clearInterval(sign);
@@ -36,6 +39,7 @@ const Detail = () => {
   return (
     <div className='flex justify-center'>
       <textarea
+        ref={textareaRef}
         value={showInfoRef.current}
         onChange={() => {}}
         className={`${Style.textarea} rounded-md dark:bg-slate-500 bg-slate-600 to-blue-500 p-4 text-yellow-300  dark:text-white`}

@@ -1,17 +1,18 @@
 'use client';
+
 import Image from 'next/image';
 import { useMount, useUpdate } from 'ahooks';
 import Style from './index.module.scss';
 import { useEffect, useRef } from 'react';
 
 const DarkToggleButton = () => {
-  const rootElement = document.querySelector('html');
   const update = useUpdate();
   const isDark = useRef(false);
   const colorSchema = isDark.current ? Style.dark : Style.light;
   const iconImage = isDark.current ? '/moon.svg' : '/sun.svg';
 
   const handleClick = () => {
+    const rootElement = document.querySelector('html');
     if (isDark.current) {
       isDark.current = false;
       rootElement?.classList.remove('dark');
@@ -23,6 +24,7 @@ const DarkToggleButton = () => {
   };
 
   useMount(() => {
+    const rootElement = document.querySelector('html');
     isDark.current = [...(rootElement?.classList || [])].includes('dark');
     update();
   });

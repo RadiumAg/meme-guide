@@ -1,31 +1,46 @@
-import { FC } from 'react';
+'use client';
+
+import { FC, useState } from 'react';
 import Image from 'next/image';
 import Example from './components/example';
 import Search from './components/search';
 import DarkToggleButton from './components/dark-toggle-button';
 import Detail from './components/detail';
+import { InfoContext } from './utils/info';
 
 const Home: FC = () => {
+  const [info, setInfo] = useState({
+    key: '',
+    keyword: '',
+  });
+
   return (
-    <main className='flex flex-col h-screen'>
-      <nav className='pl-4 pr-4 pt-6 pb-6 bg-slate-400 flex justify-end flex-shrink-0'>
-        <DarkToggleButton></DarkToggleButton>
-      </nav>
+    <InfoContext.Provider
+      value={{
+        info,
+        setInfo,
+      }}
+    >
+      <main className='flex flex-col h-screen'>
+        <nav className='pl-4 pr-4 pt-6 pb-6 bg-slate-400 flex justify-end flex-shrink-0'>
+          <DarkToggleButton></DarkToggleButton>
+        </nav>
 
-      <div className='flex-grow overflow-y-auto'>
-        <Image
-          width={300}
-          height={300}
-          className='object-cover m-auto  w-36 h-36 rounded-full mt-14'
-          src='/icon.jpg'
-          alt='icon'
-        ></Image>
+        <div className='flex-grow overflow-y-auto'>
+          <Image
+            width={300}
+            height={300}
+            className='object-cover m-auto  w-36 h-36 rounded-full mt-14'
+            src='/icon.jpg'
+            alt='icon'
+          ></Image>
 
-        <Search></Search>
-        <Example></Example>
-        <Detail></Detail>
-      </div>
-    </main>
+          <Search></Search>
+          <Example></Example>
+          <Detail></Detail>
+        </div>
+      </main>
+    </InfoContext.Provider>
   );
 };
 
